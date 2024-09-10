@@ -1,36 +1,18 @@
-import { useState, useContext } from "react";
-import { DataContext } from "./Context";
-import Match from "./Match";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./Home";
+import MatchInfo from "./MatchInfo";
+
 import "./App.css";
 
 function App() {
-  const { teames, matches, players, records, groups, finals } = useContext(DataContext);
-  console.log(groups);
-
   return (
-    <>
-      <div className="group">
-        {Object.entries(groups).map(([groupeName, matches]) => (
-          <div className="groupCard" key={groupeName}>
-            <h3>Group name: {groupeName}</h3>
-            {matches && matches.map(match=>{
-              return <Match match={match}></Match>
-            }) }
-          </div>
-        ))}
-      </div>
-      <hr/>
-      <div className="group">
-        {Object.entries(finals).map(([groupeName, matches])=>(
-          <div className="groupCard">
-            <h3>{groupeName}</h3>
-            {matches && matches.map(match=>{
-              return <Match match={match}></Match>
-            }) }
-          </div>
-        ))}
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/info/:match" element={<MatchInfo />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

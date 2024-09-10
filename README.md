@@ -11,3 +11,5 @@
 4. Group Stage Display: The app organizes and shows matches from the group stage, dividing teams into 6 groups (A-F) and automatically sorting and assigning the matches to each group.
 
 5. Knockout Stage: After the group stage is complete, the remaining matches are handled and visualized as the tournament progresses through the knockout rounds.
+
+6. React Router: Added React Router to allow users to navigate and select specific matches they want to view detailed information about.
