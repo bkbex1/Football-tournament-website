@@ -6,7 +6,6 @@ import Match from "./Match";
 export default function Home() {
   const { teames, matches, players, records, groups, finals } =
     useContext(DataContext);
-
   return (
     <>
       <div className="group">

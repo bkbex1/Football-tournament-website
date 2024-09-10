@@ -13,3 +13,5 @@
 5. Knockout Stage: After the group stage is complete, the remaining matches are handled and visualized as the tournament progresses through the knockout rounds.
 
 6. React Router: Added React Router to allow users to navigate and select specific matches they want to view detailed information about.
+
+7. Add Match Information: For each match, use filter() to extract relevant information (such as teams, score, and date) and store this in arrays for dynamic display on the UI. Each match's data is filtered based on criteria like team IDs or match dates, and then stored in structured arrays that are easily accessible for rendering match details across the app.

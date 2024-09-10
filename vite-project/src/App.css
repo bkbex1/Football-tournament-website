@@ -27,6 +27,7 @@
 
 .group, .matchInfo{
   display: flex;
+  margin: 10px;
   flex-direction: row;
 }
 
@@ -37,7 +38,16 @@
 }
 
 .teamHalf{
+  text-align: center;
   display: flex;
-  flex-direction: row;
-  margin: 10px;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.table{
+  margin: 0 25px;
+}
+.table table td{
+  border: 1px solid black;
+  padding: 5px;
 }
