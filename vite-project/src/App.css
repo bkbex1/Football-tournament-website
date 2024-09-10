@@ -25,7 +25,7 @@
   padding: 10px;
 }
 
-.group{
+.group, .matchInfo{
   display: flex;
   flex-direction: row;
 }
@@ -34,4 +34,10 @@
   width: 100%;
   background-color: greenyellow;
   color: black;
+}
+
+.teamHalf{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
 }

@@ -4,7 +4,6 @@ export const DataContext = createContext();
 
 const formatEuropeanDate = (dateString) => {
   const date = new Date(dateString);
-
   const day = String(date.getDate()).padStart(2, "0");
   const month = String(date.getMonth() + 1).padStart(2, "0");
   const year = date.getFullYear();
@@ -26,13 +25,15 @@ export const DataProvider = ({ children }) => {
     E: [],
     F: [],
   };
-
+  function findMatchByID(id) {
+    return matches.find((match)=> match.ID===id)
+  }
   const finalsArray = {
     RoundOf8: [],
     QuarterFinals: [],
     SemiFinals: [],
     Final: [],
-};
+  };
 
   useEffect(() => {
     const loadMatches = async () => {
@@ -96,17 +97,15 @@ export const DataProvider = ({ children }) => {
             break;
         }
       }
-      let length = Math.ceil(restMatches.length/2)
+      let length = Math.ceil(restMatches.length / 2);
 
-
-    Object.entries(finalsArray).forEach(([name, array])=>{
-        for(let i=0;i<length;i++){ 
-          array.push(restMatches.shift())
+      Object.entries(finalsArray).forEach(([name, array]) => {
+        for (let i = 0; i < length; i++) {
+          array.push(restMatches.shift());
         }
-        length = length-Math.ceil(length/2)
-
-      })
-      setFinals(finalsArray)
+        length = length - Math.ceil(length / 2);
+      });
+      setFinals(finalsArray);
       setGroups(groupsArray);
     };
 
@@ -116,7 +115,9 @@ export const DataProvider = ({ children }) => {
   function findTeamName(TeamID) {
     return teames.find((team) => team.ID === TeamID);
   }
-
+  function findAllTeamPlayers(TeamID) {
+    return players.filter((player) => player.TeamID === TeamID);
+  }
   const parseCSV = (text) => {
     const rows = text.split("\n");
     const headers = rows[0].split(",").map((header) => header.trim());
@@ -141,8 +142,10 @@ export const DataProvider = ({ children }) => {
         records,
         matches,
         groups,
-        findTeamName,
         finals,
+        findTeamName,
+        findMatchByID,
+        findAllTeamPlayers,
       }}
     >
       {children}

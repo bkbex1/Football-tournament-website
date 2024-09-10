@@ -6,18 +6,17 @@ import Match from "./Match";
 export default function Home() {
   const { teames, matches, players, records, groups, finals } =
     useContext(DataContext);
-  console.log(groups);
 
   return (
     <>
       <div className="group">
         {Object.entries(groups).map(([groupeName, matches]) => (
-          <div className="groupCard" key={groupeName}>
+          <div key={groupeName} className="groupCard" >
             <h3>Group name: {groupeName}</h3>
             {matches &&
               matches.map((match) => {
                 return (
-                  <Link to={match.ID}>
+                  <Link to={"info/"+match.ID}>
                     <Match match={match}></Match>
                   </Link>
                 );
@@ -33,7 +32,7 @@ export default function Home() {
             {matches &&
               matches.map((match) => {
                 return (
-                  <Link to={match.ID}>
+                  <Link to={"info/"+match.ID}>
                     <Match match={match}></Match>
                   </Link>
                 );
